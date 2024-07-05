@@ -1,42 +1,43 @@
-# LMS Application
+# LMS-AI
 
-This is a Learning Management System (LMS) application with features for personal assistance, course recommendations, and a PDF chat system for Q&A.
+This repository contains a Learning Management System (LMS) with AI capabilities for personal assistance, resource/course recommendations, and a PDF chat system for Q&A and exams. It is built using TypeScript, Amplication, and other modern technologies.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Backend Setup (Flask)](#backend-setup-flask)
-- [Frontend Setup (Next.js)](#frontend-setup-nextjs)
-- [Running the Application](#running-the-application)
-- [API Documentation](#api-documentation)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Features
 
-- Personal assistance for students
-- Resource and course recommendations
-- PDF chat system for question and answer sessions
+- **Personal Assistance:** AI-driven personal assistance for students.
+- **Course Recommendations:** Smart resource and course recommendations.
+- **PDF Chat System:** Interactive PDF chat system for question and answer sessions.
 
 ## Technologies Used
 
-- **Backend:** Python, Flask, SQLAlchemy, Flask-JWT-Extended
-- **Frontend:** Next.js, Tailwind CSS, Axios
-- **Database:** SQLite (development), PostgreSQL (production)
-- **Machine Learning:** scikit-learn, nltk
+- **Languages:** TypeScript, CSS
+- **Backend:** Node.js, Amplication
+- **Frontend:** React, Next.js
+- **AI/ML:** Python, scikit-learn, NLTK
 
-## Backend Setup (Flask)
+## Setup and Installation
 
 ### Prerequisites
 
-- Python 3.8+
-- pip (Python package installer)
+- Node.js (version 14+)
+- npm or yarn
+- Python (for AI/ML components)
+- Docker (for containerized environment)
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
-```sh
-git clone https://github.com/yourusername/lms-backend.git
-cd lms-backend
+   ```sh
+   git clone https://github.com/K-Ananthamoorthy/LMS-AI.git
+   cd LMS-AI
