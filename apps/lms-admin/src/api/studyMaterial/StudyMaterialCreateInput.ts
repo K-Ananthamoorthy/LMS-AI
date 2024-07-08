@@ -1,11 +1,11 @@
-import { CourseWhereUniqueInput } from "../course/CourseWhereUniqueInput";
-import { CourseCreateNestedManyWithoutStudyMaterialsInput } from "./CourseCreateNestedManyWithoutStudyMaterialsInput";
 import { InputJsonValue } from "../../types";
+import { CourseCreateNestedManyWithoutStudyMaterialsInput } from "./CourseCreateNestedManyWithoutStudyMaterialsInput";
+import { CourseWhereUniqueInput } from "../course/CourseWhereUniqueInput";
 
 export type StudyMaterialCreateInput = {
-  course?: CourseWhereUniqueInput | null;
-  courses?: CourseCreateNestedManyWithoutStudyMaterialsInput;
-  description?: string | null;
   file?: InputJsonValue;
   title?: string | null;
+  description?: string | null;
+  courses?: CourseCreateNestedManyWithoutStudyMaterialsInput;
+  course?: CourseWhereUniqueInput | null;
 };

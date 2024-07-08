@@ -43,17 +43,6 @@ class ChatMessageWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  sender?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: DateTimeNullableFilter,
   })
   @Type(() => DateTimeNullableFilter)
@@ -62,6 +51,17 @@ class ChatMessageWhereInput {
     nullable: true,
   })
   timestamp?: DateTimeNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  sender?: StringNullableFilter;
 }
 
 export { ChatMessageWhereInput as ChatMessageWhereInput };

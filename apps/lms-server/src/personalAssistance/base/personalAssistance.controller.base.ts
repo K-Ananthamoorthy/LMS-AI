@@ -59,18 +59,17 @@ export class PersonalAssistanceControllerBase {
           : undefined,
       },
       select: {
-        assistanceType: true,
-        createdAt: true,
-        details: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        assistanceType: true,
+        details: true,
 
         student: {
           select: {
             id: true,
           },
         },
-
-        updatedAt: true,
       },
     });
   }
@@ -94,18 +93,17 @@ export class PersonalAssistanceControllerBase {
     return this.service.personalAssistances({
       ...args,
       select: {
-        assistanceType: true,
-        createdAt: true,
-        details: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        assistanceType: true,
+        details: true,
 
         student: {
           select: {
             id: true,
           },
         },
-
-        updatedAt: true,
       },
     });
   }
@@ -128,18 +126,17 @@ export class PersonalAssistanceControllerBase {
     const result = await this.service.personalAssistance({
       where: params,
       select: {
-        assistanceType: true,
-        createdAt: true,
-        details: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        assistanceType: true,
+        details: true,
 
         student: {
           select: {
             id: true,
           },
         },
-
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -179,18 +176,17 @@ export class PersonalAssistanceControllerBase {
             : undefined,
         },
         select: {
-          assistanceType: true,
-          createdAt: true,
-          details: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          assistanceType: true,
+          details: true,
 
           student: {
             select: {
               id: true,
             },
           },
-
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -221,18 +217,17 @@ export class PersonalAssistanceControllerBase {
       return await this.service.deletePersonalAssistance({
         where: params,
         select: {
-          assistanceType: true,
-          createdAt: true,
-          details: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          assistanceType: true,
+          details: true,
 
           student: {
             select: {
               id: true,
             },
           },
-
-          updatedAt: true,
         },
       });
     } catch (error) {

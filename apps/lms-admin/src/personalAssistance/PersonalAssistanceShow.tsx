@@ -15,14 +15,14 @@ export const PersonalAssistanceShow = (
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <TextField label="AssistanceType" source="assistanceType" />
-        <DateField source="createdAt" label="Created At" />
-        <TextField label="Details" source="details" />
         <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="AssistanceType" source="assistanceType" />
+        <TextField label="Details" source="details" />
         <ReferenceField label="Student" source="student.id" reference="Student">
           <TextField source={STUDENT_TITLE_FIELD} />
         </ReferenceField>
-        <DateField source="updatedAt" label="Updated At" />
       </SimpleShowLayout>
     </Show>
   );

@@ -54,11 +54,11 @@ export class StudentControllerBase {
     return await this.service.createStudent({
       data: data,
       select: {
-        createdAt: true,
-        email: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        name: true,
+        email: true,
       },
     });
   }
@@ -80,11 +80,11 @@ export class StudentControllerBase {
     return this.service.students({
       ...args,
       select: {
-        createdAt: true,
-        email: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        name: true,
+        email: true,
       },
     });
   }
@@ -107,11 +107,11 @@ export class StudentControllerBase {
     const result = await this.service.student({
       where: params,
       select: {
-        createdAt: true,
-        email: true,
         id: true,
-        name: true,
+        createdAt: true,
         updatedAt: true,
+        name: true,
+        email: true,
       },
     });
     if (result === null) {
@@ -143,11 +143,11 @@ export class StudentControllerBase {
         where: params,
         data: data,
         select: {
-          createdAt: true,
-          email: true,
           id: true,
-          name: true,
+          createdAt: true,
           updatedAt: true,
+          name: true,
+          email: true,
         },
       });
     } catch (error) {
@@ -178,11 +178,11 @@ export class StudentControllerBase {
       return await this.service.deleteStudent({
         where: params,
         select: {
-          createdAt: true,
-          email: true,
           id: true,
-          name: true,
+          createdAt: true,
           updatedAt: true,
+          name: true,
+          email: true,
         },
       });
     } catch (error) {
@@ -211,18 +211,17 @@ export class StudentControllerBase {
     const results = await this.service.findPersonalAssistances(params.id, {
       ...query,
       select: {
-        assistanceType: true,
-        createdAt: true,
-        details: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        assistanceType: true,
+        details: true,
 
         student: {
           select: {
             id: true,
           },
         },
-
-        updatedAt: true,
       },
     });
     if (results === null) {

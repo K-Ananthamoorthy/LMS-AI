@@ -1,10 +1,10 @@
 import { PersonalAssistance } from "../personalAssistance/PersonalAssistance";
 
 export type Student = {
-  createdAt: Date;
-  email: string | null;
   id: string;
-  name: string | null;
-  personalAssistances?: Array<PersonalAssistance>;
+  createdAt: Date;
   updatedAt: Date;
+  name: string | null;
+  email: string | null;
+  personalAssistances?: Array<PersonalAssistance>;
 };

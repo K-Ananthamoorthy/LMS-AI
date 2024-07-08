@@ -62,18 +62,18 @@ export class StudyMaterialControllerBase {
           : undefined,
       },
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        file: true,
+        title: true,
+        description: true,
+
         course: {
           select: {
             id: true,
           },
         },
-
-        createdAt: true,
-        description: true,
-        file: true,
-        id: true,
-        title: true,
-        updatedAt: true,
       },
     });
   }
@@ -97,18 +97,18 @@ export class StudyMaterialControllerBase {
     return this.service.studyMaterials({
       ...args,
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        file: true,
+        title: true,
+        description: true,
+
         course: {
           select: {
             id: true,
           },
         },
-
-        createdAt: true,
-        description: true,
-        file: true,
-        id: true,
-        title: true,
-        updatedAt: true,
       },
     });
   }
@@ -131,18 +131,18 @@ export class StudyMaterialControllerBase {
     const result = await this.service.studyMaterial({
       where: params,
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        file: true,
+        title: true,
+        description: true,
+
         course: {
           select: {
             id: true,
           },
         },
-
-        createdAt: true,
-        description: true,
-        file: true,
-        id: true,
-        title: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -182,18 +182,18 @@ export class StudyMaterialControllerBase {
             : undefined,
         },
         select: {
+          id: true,
+          createdAt: true,
+          updatedAt: true,
+          file: true,
+          title: true,
+          description: true,
+
           course: {
             select: {
               id: true,
             },
           },
-
-          createdAt: true,
-          description: true,
-          file: true,
-          id: true,
-          title: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -224,18 +224,18 @@ export class StudyMaterialControllerBase {
       return await this.service.deleteStudyMaterial({
         where: params,
         select: {
+          id: true,
+          createdAt: true,
+          updatedAt: true,
+          file: true,
+          title: true,
+          description: true,
+
           course: {
             select: {
               id: true,
             },
           },
-
-          createdAt: true,
-          description: true,
-          file: true,
-          id: true,
-          title: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -264,18 +264,17 @@ export class StudyMaterialControllerBase {
     const results = await this.service.findCourses(params.id, {
       ...query,
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
 
         studyMaterial: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
     if (results === null) {

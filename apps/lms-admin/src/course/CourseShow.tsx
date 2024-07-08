@@ -4,8 +4,8 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  DateField,
   TextField,
+  DateField,
   ReferenceField,
   ReferenceManyField,
   Datagrid,
@@ -18,9 +18,11 @@ export const CourseShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <DateField source="createdAt" label="Created At" />
-        <TextField label="Description" source="description" />
         <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="Title" source="title" />
+        <TextField label="Description" source="description" />
         <ReferenceField
           label="StudyMaterial"
           source="studymaterial.id"
@@ -28,14 +30,18 @@ export const CourseShow = (props: ShowProps): React.ReactElement => {
         >
           <TextField source={STUDYMATERIAL_TITLE_FIELD} />
         </ReferenceField>
-        <TextField label="Title" source="title" />
-        <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField
           reference="StudyMaterial"
           target="courseId"
           label="StudyMaterials"
         >
           <Datagrid rowClick="show">
+            <TextField label="ID" source="id" />
+            <DateField source="createdAt" label="Created At" />
+            <DateField source="updatedAt" label="Updated At" />
+            <TextField label="File" source="file" />
+            <TextField label="Title" source="title" />
+            <TextField label="Description" source="description" />
             <ReferenceField
               label="Course"
               source="course.id"
@@ -43,12 +49,6 @@ export const CourseShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={COURSE_TITLE_FIELD} />
             </ReferenceField>
-            <DateField source="createdAt" label="Created At" />
-            <TextField label="Description" source="description" />
-            <TextField label="File" source="file" />
-            <TextField label="ID" source="id" />
-            <TextField label="Title" source="title" />
-            <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>
       </SimpleShowLayout>

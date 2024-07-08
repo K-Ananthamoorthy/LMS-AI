@@ -12,10 +12,10 @@ https://docs.amplication.com/how-to/custom-code
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsDate,
   IsString,
-  IsOptional,
+  IsDate,
   MaxLength,
+  IsOptional,
   ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
@@ -25,6 +25,14 @@ import { PersonalAssistance } from "../../personalAssistance/base/PersonalAssist
 class Student {
   @ApiProperty({
     required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  id!: string;
+
+  @ApiProperty({
+    required: true,
   })
   @IsDate()
   @Type(() => Date)
@@ -32,23 +40,12 @@ class Student {
   createdAt!: Date;
 
   @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  email!: string | null;
-
-  @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
 
   @ApiProperty({
     required: false,
@@ -64,20 +61,23 @@ class Student {
 
   @ApiProperty({
     required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  email!: string | null;
+
+  @ApiProperty({
+    required: false,
     type: () => [PersonalAssistance],
   })
   @ValidateNested()
   @Type(() => PersonalAssistance)
   @IsOptional()
   personalAssistances?: Array<PersonalAssistance>;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
 }
 
 export { Student as Student };

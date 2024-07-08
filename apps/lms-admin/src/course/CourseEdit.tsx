@@ -17,6 +17,7 @@ export const CourseEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <TextInput label="Title" source="title" />
         <TextInput label="Description" multiline source="description" />
         <ReferenceInput
           source="studyMaterial.id"
@@ -33,7 +34,6 @@ export const CourseEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={StudyMaterialTitle} />
         </ReferenceArrayInput>
-        <TextInput label="Title" source="title" />
       </SimpleForm>
     </Edit>
   );

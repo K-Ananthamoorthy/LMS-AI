@@ -13,8 +13,8 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
   IsString,
-  IsOptional,
   MaxLength,
+  IsOptional,
   ValidateNested,
 } from "class-validator";
 import { PersonalAssistanceCreateNestedManyWithoutStudentsInput } from "./PersonalAssistanceCreateNestedManyWithoutStudentsInput";
@@ -27,23 +27,23 @@ class StudentCreateInput {
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  email?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
   @MaxLength(1000)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
   })
   name?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  email?: string | null;
 
   @ApiProperty({
     required: false,

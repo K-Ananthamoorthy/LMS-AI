@@ -4,11 +4,11 @@ import {
   Edit,
   SimpleForm,
   EditProps,
-  ReferenceInput,
-  SelectInput,
+  TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
-  TextInput,
+  ReferenceInput,
+  SelectInput,
 } from "react-admin";
 
 import { CourseTitle } from "../course/CourseTitle";
@@ -17,9 +17,9 @@ export const StudyMaterialEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <ReferenceInput source="course.id" reference="Course" label="Course">
-          <SelectInput optionText={CourseTitle} />
-        </ReferenceInput>
+        <div />
+        <TextInput label="Title" source="title" />
+        <TextInput label="Description" multiline source="description" />
         <ReferenceArrayInput
           source="courses"
           reference="Course"
@@ -28,9 +28,9 @@ export const StudyMaterialEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={CourseTitle} />
         </ReferenceArrayInput>
-        <TextInput label="Description" multiline source="description" />
-        <div />
-        <TextInput label="Title" source="title" />
+        <ReferenceInput source="course.id" reference="Course" label="Course">
+          <SelectInput optionText={CourseTitle} />
+        </ReferenceInput>
       </SimpleForm>
     </Edit>
   );

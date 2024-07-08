@@ -12,8 +12,8 @@ export const ChatMessageCreate = (props: CreateProps): React.ReactElement => {
     <Create {...props}>
       <SimpleForm>
         <TextInput label="Message" multiline source="message" />
-        <TextInput label="Sender" source="sender" />
         <DateTimeInput label="Timestamp" source="timestamp" />
+        <TextInput label="Sender" source="sender" />
       </SimpleForm>
     </Create>
   );

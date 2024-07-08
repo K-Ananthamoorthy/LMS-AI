@@ -11,15 +11,26 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { EnumPersonalAssistanceAssistanceType } from "./EnumPersonalAssistanceAssistanceType";
-import { IsEnum, IsOptional, ValidateNested } from "class-validator";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
+import { Type } from "class-transformer";
+import { IsOptional, IsEnum, ValidateNested } from "class-validator";
+import { EnumPersonalAssistanceAssistanceType } from "./EnumPersonalAssistanceAssistanceType";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StudentWhereUniqueInput } from "../../student/base/StudentWhereUniqueInput";
 
 @InputType()
 class PersonalAssistanceWhereInput {
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  id?: StringFilter;
+
   @ApiProperty({
     required: false,
     enum: EnumPersonalAssistanceAssistanceType,
@@ -41,17 +52,6 @@ class PersonalAssistanceWhereInput {
     nullable: true,
   })
   details?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringFilter,
-  })
-  @Type(() => StringFilter)
-  @IsOptional()
-  @Field(() => StringFilter, {
-    nullable: true,
-  })
-  id?: StringFilter;
 
   @ApiProperty({
     required: false,

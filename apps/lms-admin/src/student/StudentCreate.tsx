@@ -15,8 +15,8 @@ export const StudentCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <TextInput label="Email" source="email" type="email" />
         <TextInput label="Name" source="name" />
+        <TextInput label="Email" source="email" type="email" />
         <ReferenceArrayInput
           source="personalAssistances"
           reference="PersonalAssistance"

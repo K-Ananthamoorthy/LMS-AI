@@ -2,8 +2,8 @@ import { StudyMaterialWhereUniqueInput } from "../studyMaterial/StudyMaterialWhe
 import { StudyMaterialUpdateManyWithoutCoursesInput } from "./StudyMaterialUpdateManyWithoutCoursesInput";
 
 export type CourseUpdateInput = {
+  title?: string | null;
   description?: string | null;
   studyMaterial?: StudyMaterialWhereUniqueInput | null;
   studyMaterials?: StudyMaterialUpdateManyWithoutCoursesInput;
-  title?: string | null;
 };
