@@ -1,13 +1,13 @@
-import { Course } from "../course/Course";
 import { JsonValue } from "type-fest";
+import { Course } from "../course/Course";
 
 export type StudyMaterial = {
-  course?: Course | null;
-  courses?: Array<Course>;
-  createdAt: Date;
-  description: string | null;
-  file: JsonValue;
   id: string;
-  title: string | null;
+  createdAt: Date;
   updatedAt: Date;
+  file: JsonValue;
+  title: string | null;
+  description: string | null;
+  courses?: Array<Course>;
+  course?: Course | null;
 };

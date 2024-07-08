@@ -30,6 +30,17 @@ class ChatMessageUpdateInput {
 
   @ApiProperty({
     required: false,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  @Field(() => Date, {
+    nullable: true,
+  })
+  timestamp?: Date | null;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
@@ -39,17 +50,6 @@ class ChatMessageUpdateInput {
     nullable: true,
   })
   sender?: string | null;
-
-  @ApiProperty({
-    required: false,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @IsOptional()
-  @Field(() => Date, {
-    nullable: true,
-  })
-  timestamp?: Date | null;
 }
 
 export { ChatMessageUpdateInput as ChatMessageUpdateInput };

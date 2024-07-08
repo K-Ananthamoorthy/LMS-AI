@@ -60,18 +60,17 @@ export class CourseControllerBase {
           : undefined,
       },
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
 
         studyMaterial: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
   }
@@ -93,18 +92,17 @@ export class CourseControllerBase {
     return this.service.courses({
       ...args,
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
 
         studyMaterial: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
   }
@@ -127,18 +125,17 @@ export class CourseControllerBase {
     const result = await this.service.course({
       where: params,
       select: {
-        createdAt: true,
-        description: true,
         id: true,
+        createdAt: true,
+        updatedAt: true,
+        title: true,
+        description: true,
 
         studyMaterial: {
           select: {
             id: true,
           },
         },
-
-        title: true,
-        updatedAt: true,
       },
     });
     if (result === null) {
@@ -178,18 +175,17 @@ export class CourseControllerBase {
             : undefined,
         },
         select: {
-          createdAt: true,
-          description: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          title: true,
+          description: true,
 
           studyMaterial: {
             select: {
               id: true,
             },
           },
-
-          title: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -220,18 +216,17 @@ export class CourseControllerBase {
       return await this.service.deleteCourse({
         where: params,
         select: {
-          createdAt: true,
-          description: true,
           id: true,
+          createdAt: true,
+          updatedAt: true,
+          title: true,
+          description: true,
 
           studyMaterial: {
             select: {
               id: true,
             },
           },
-
-          title: true,
-          updatedAt: true,
         },
       });
     } catch (error) {
@@ -260,18 +255,18 @@ export class CourseControllerBase {
     const results = await this.service.findStudyMaterials(params.id, {
       ...query,
       select: {
+        id: true,
+        createdAt: true,
+        updatedAt: true,
+        file: true,
+        title: true,
+        description: true,
+
         course: {
           select: {
             id: true,
           },
         },
-
-        createdAt: true,
-        description: true,
-        file: true,
-        id: true,
-        title: true,
-        updatedAt: true,
       },
     });
     if (results === null) {

@@ -11,57 +11,21 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CourseWhereUniqueInput } from "../../course/base/CourseWhereUniqueInput";
+import { IsJSONValue } from "../../validators";
 import {
-  ValidateNested,
   IsOptional,
   IsString,
   MaxLength,
+  ValidateNested,
 } from "class-validator";
-import { Type } from "class-transformer";
-import { CourseCreateNestedManyWithoutStudyMaterialsInput } from "./CourseCreateNestedManyWithoutStudyMaterialsInput";
-import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
+import { CourseCreateNestedManyWithoutStudyMaterialsInput } from "./CourseCreateNestedManyWithoutStudyMaterialsInput";
+import { Type } from "class-transformer";
+import { CourseWhereUniqueInput } from "../../course/base/CourseWhereUniqueInput";
 
 @InputType()
 class StudyMaterialCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => CourseWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => CourseWhereUniqueInput)
-  @IsOptional()
-  @Field(() => CourseWhereUniqueInput, {
-    nullable: true,
-  })
-  course?: CourseWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => CourseCreateNestedManyWithoutStudyMaterialsInput,
-  })
-  @ValidateNested()
-  @Type(() => CourseCreateNestedManyWithoutStudyMaterialsInput)
-  @IsOptional()
-  @Field(() => CourseCreateNestedManyWithoutStudyMaterialsInput, {
-    nullable: true,
-  })
-  courses?: CourseCreateNestedManyWithoutStudyMaterialsInput;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  description?: string | null;
-
   @ApiProperty({
     required: false,
   })
@@ -83,6 +47,42 @@ class StudyMaterialCreateInput {
     nullable: true,
   })
   title?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  description?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => CourseCreateNestedManyWithoutStudyMaterialsInput,
+  })
+  @ValidateNested()
+  @Type(() => CourseCreateNestedManyWithoutStudyMaterialsInput)
+  @IsOptional()
+  @Field(() => CourseCreateNestedManyWithoutStudyMaterialsInput, {
+    nullable: true,
+  })
+  courses?: CourseCreateNestedManyWithoutStudyMaterialsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => CourseWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => CourseWhereUniqueInput)
+  @IsOptional()
+  @Field(() => CourseWhereUniqueInput, {
+    nullable: true,
+  })
+  course?: CourseWhereUniqueInput | null;
 }
 
 export { StudyMaterialCreateInput as StudyMaterialCreateInput };

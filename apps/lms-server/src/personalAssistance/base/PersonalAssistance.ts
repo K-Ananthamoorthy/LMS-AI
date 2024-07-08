@@ -11,20 +11,44 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { EnumPersonalAssistanceAssistanceType } from "./EnumPersonalAssistanceAssistanceType";
 import {
+  IsString,
+  IsDate,
   IsEnum,
   IsOptional,
-  IsDate,
-  IsString,
   MaxLength,
   ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { EnumPersonalAssistanceAssistanceType } from "./EnumPersonalAssistanceAssistanceType";
 import { Student } from "../../student/base/Student";
 
 @ObjectType()
 class PersonalAssistance {
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  id!: string;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  createdAt!: Date;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
+
   @ApiProperty({
     required: false,
     enum: EnumPersonalAssistanceAssistanceType,
@@ -35,14 +59,6 @@ class PersonalAssistance {
     nullable: true,
   })
   assistanceType?: "Option1" | null;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  createdAt!: Date;
 
   @ApiProperty({
     required: false,
@@ -57,14 +73,6 @@ class PersonalAssistance {
   details!: string | null;
 
   @ApiProperty({
-    required: true,
-    type: String,
-  })
-  @IsString()
-  @Field(() => String)
-  id!: string;
-
-  @ApiProperty({
     required: false,
     type: () => Student,
   })
@@ -72,14 +80,6 @@ class PersonalAssistance {
   @Type(() => Student)
   @IsOptional()
   student?: Student | null;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
 }
 
 export { PersonalAssistance as PersonalAssistance };

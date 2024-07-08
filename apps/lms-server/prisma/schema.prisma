@@ -8,66 +8,66 @@ generator client {
 }
 
 model Student {
-  createdAt           DateTime             @default(now())
-  email               String?
   id                  String               @id @default(cuid())
-  name                String?
-  personalAssistances PersonalAssistance[]
+  createdAt           DateTime             @default(now())
   updatedAt           DateTime             @updatedAt
+  name                String?
+  email               String?
+  personalAssistances PersonalAssistance[]
 }
 
 model PersonalAssistance {
-  assistanceType EnumPersonalAssistanceAssistanceType?
-  createdAt      DateTime                              @default(now())
-  details        String?
   id             String                                @id @default(cuid())
+  createdAt      DateTime                              @default(now())
+  updatedAt      DateTime                              @updatedAt
+  assistanceType EnumPersonalAssistanceAssistanceType?
+  details        String?
   student        Student?                              @relation(fields: [studentId], references: [id])
   studentId      String?
-  updatedAt      DateTime                              @updatedAt
 }
 
 model StudyMaterial {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  file        Json?
+  title       String?
+  description String?
+  courses     Course[] @relation(name: "CoursesOnStudyMaterial")
   course      Course?  @relation(name: "CourseOnStudyMaterials", fields: [courseId], references: [id])
   courseId    String?
-  courses     Course[] @relation(name: "CoursesOnStudyMaterial")
-  createdAt   DateTime @default(now())
-  description String?
-  file        Json?
-  id          String   @id @default(cuid())
-  title       String?
-  updatedAt   DateTime @updatedAt
 }
 
 model ChatMessage {
-  createdAt DateTime  @default(now())
   id        String    @id @default(cuid())
-  message   String?
-  sender    String?
-  timestamp DateTime?
+  createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+  message   String?
+  timestamp DateTime?
+  sender    String?
 }
 
 model Course {
-  createdAt       DateTime        @default(now())
-  description     String?
   id              String          @id @default(cuid())
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  title           String?
+  description     String?
   studyMaterial   StudyMaterial?  @relation(name: "CoursesOnStudyMaterial", fields: [studyMaterialId], references: [id])
   studyMaterialId String?
   studyMaterials  StudyMaterial[] @relation(name: "CourseOnStudyMaterials")
-  title           String?
-  updatedAt       DateTime        @updatedAt
 }
 
 model User {
-  createdAt DateTime @default(now())
-  email     String?  @unique
-  firstName String?
   id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstName String?
   lastName  String?
+  username  String   @unique
+  email     String?  @unique
   password  String
   roles     Json
-  updatedAt DateTime @updatedAt
-  username  String   @unique
 }
 
 enum EnumPersonalAssistanceAssistanceType {

@@ -1,11 +1,11 @@
-import { CourseWhereUniqueInput } from "../course/CourseWhereUniqueInput";
-import { CourseUpdateManyWithoutStudyMaterialsInput } from "./CourseUpdateManyWithoutStudyMaterialsInput";
 import { InputJsonValue } from "../../types";
+import { CourseUpdateManyWithoutStudyMaterialsInput } from "./CourseUpdateManyWithoutStudyMaterialsInput";
+import { CourseWhereUniqueInput } from "../course/CourseWhereUniqueInput";
 
 export type StudyMaterialUpdateInput = {
-  course?: CourseWhereUniqueInput | null;
-  courses?: CourseUpdateManyWithoutStudyMaterialsInput;
-  description?: string | null;
   file?: InputJsonValue;
   title?: string | null;
+  description?: string | null;
+  courses?: CourseUpdateManyWithoutStudyMaterialsInput;
+  course?: CourseWhereUniqueInput | null;
 };

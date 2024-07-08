@@ -1,10 +1,10 @@
 import { SortOrder } from "../../util/SortOrder";
 
 export type ChatMessageOrderByInput = {
-  createdAt?: SortOrder;
   id?: SortOrder;
-  message?: SortOrder;
-  sender?: SortOrder;
-  timestamp?: SortOrder;
+  createdAt?: SortOrder;
   updatedAt?: SortOrder;
+  message?: SortOrder;
+  timestamp?: SortOrder;
+  sender?: SortOrder;
 };

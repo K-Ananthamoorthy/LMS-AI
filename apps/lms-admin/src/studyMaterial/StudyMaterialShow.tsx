@@ -4,9 +4,9 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  ReferenceField,
   TextField,
   DateField,
+  ReferenceField,
   ReferenceManyField,
   Datagrid,
 } from "react-admin";
@@ -18,24 +18,26 @@ export const StudyMaterialShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
+        <TextField label="ID" source="id" />
+        <DateField source="createdAt" label="Created At" />
+        <DateField source="updatedAt" label="Updated At" />
+        <TextField label="File" source="file" />
+        <TextField label="Title" source="title" />
+        <TextField label="Description" source="description" />
         <ReferenceField label="Course" source="course.id" reference="Course">
           <TextField source={COURSE_TITLE_FIELD} />
         </ReferenceField>
-        <DateField source="createdAt" label="Created At" />
-        <TextField label="Description" source="description" />
-        <TextField label="File" source="file" />
-        <TextField label="ID" source="id" />
-        <TextField label="Title" source="title" />
-        <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField
           reference="Course"
           target="studyMaterialId"
           label="Courses"
         >
           <Datagrid rowClick="show">
-            <DateField source="createdAt" label="Created At" />
-            <TextField label="Description" source="description" />
             <TextField label="ID" source="id" />
+            <DateField source="createdAt" label="Created At" />
+            <DateField source="updatedAt" label="Updated At" />
+            <TextField label="Title" source="title" />
+            <TextField label="Description" source="description" />
             <ReferenceField
               label="StudyMaterial"
               source="studymaterial.id"
@@ -43,8 +45,6 @@ export const StudyMaterialShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={STUDYMATERIAL_TITLE_FIELD} />
             </ReferenceField>
-            <TextField label="Title" source="title" />
-            <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>
       </SimpleShowLayout>

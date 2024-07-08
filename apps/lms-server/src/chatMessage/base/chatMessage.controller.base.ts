@@ -51,12 +51,12 @@ export class ChatMessageControllerBase {
     return await this.service.createChatMessage({
       data: data,
       select: {
-        createdAt: true,
         id: true,
-        message: true,
-        sender: true,
-        timestamp: true,
+        createdAt: true,
         updatedAt: true,
+        message: true,
+        timestamp: true,
+        sender: true,
       },
     });
   }
@@ -78,12 +78,12 @@ export class ChatMessageControllerBase {
     return this.service.chatMessages({
       ...args,
       select: {
-        createdAt: true,
         id: true,
-        message: true,
-        sender: true,
-        timestamp: true,
+        createdAt: true,
         updatedAt: true,
+        message: true,
+        timestamp: true,
+        sender: true,
       },
     });
   }
@@ -106,12 +106,12 @@ export class ChatMessageControllerBase {
     const result = await this.service.chatMessage({
       where: params,
       select: {
-        createdAt: true,
         id: true,
-        message: true,
-        sender: true,
-        timestamp: true,
+        createdAt: true,
         updatedAt: true,
+        message: true,
+        timestamp: true,
+        sender: true,
       },
     });
     if (result === null) {
@@ -143,12 +143,12 @@ export class ChatMessageControllerBase {
         where: params,
         data: data,
         select: {
-          createdAt: true,
           id: true,
-          message: true,
-          sender: true,
-          timestamp: true,
+          createdAt: true,
           updatedAt: true,
+          message: true,
+          timestamp: true,
+          sender: true,
         },
       });
     } catch (error) {
@@ -179,12 +179,12 @@ export class ChatMessageControllerBase {
       return await this.service.deleteChatMessage({
         where: params,
         select: {
-          createdAt: true,
           id: true,
-          message: true,
-          sender: true,
-          timestamp: true,
+          createdAt: true,
           updatedAt: true,
+          message: true,
+          timestamp: true,
+          sender: true,
         },
       });
     } catch (error) {

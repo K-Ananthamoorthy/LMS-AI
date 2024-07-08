@@ -1,7 +1,7 @@
 import { PersonalAssistanceUpdateManyWithoutStudentsInput } from "./PersonalAssistanceUpdateManyWithoutStudentsInput";
 
 export type StudentUpdateInput = {
-  email?: string | null;
   name?: string | null;
+  email?: string | null;
   personalAssistances?: PersonalAssistanceUpdateManyWithoutStudentsInput;
 };

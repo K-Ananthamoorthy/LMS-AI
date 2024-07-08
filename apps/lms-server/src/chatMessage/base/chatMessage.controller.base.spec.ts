@@ -18,38 +18,38 @@ import { ChatMessageService } from "../chatMessage.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
   id: "exampleId",
-  message: "exampleMessage",
-  sender: "exampleSender",
-  timestamp: new Date(),
+  createdAt: new Date(),
   updatedAt: new Date(),
+  message: "exampleMessage",
+  timestamp: new Date(),
+  sender: "exampleSender",
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
   id: "exampleId",
-  message: "exampleMessage",
-  sender: "exampleSender",
-  timestamp: new Date(),
+  createdAt: new Date(),
   updatedAt: new Date(),
+  message: "exampleMessage",
+  timestamp: new Date(),
+  sender: "exampleSender",
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
     id: "exampleId",
-    message: "exampleMessage",
-    sender: "exampleSender",
-    timestamp: new Date(),
+    createdAt: new Date(),
     updatedAt: new Date(),
+    message: "exampleMessage",
+    timestamp: new Date(),
+    sender: "exampleSender",
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
   id: "exampleId",
-  message: "exampleMessage",
-  sender: "exampleSender",
-  timestamp: new Date(),
+  createdAt: new Date(),
   updatedAt: new Date(),
+  message: "exampleMessage",
+  timestamp: new Date(),
+  sender: "exampleSender",
 };
 
 const service = {
@@ -135,8 +135,8 @@ describe("ChatMessage", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
-        timestamp: CREATE_RESULT.timestamp.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+        timestamp: CREATE_RESULT.timestamp.toISOString(),
       });
   });
 
@@ -148,8 +148,8 @@ describe("ChatMessage", () => {
         {
           ...FIND_MANY_RESULT[0],
           createdAt: FIND_MANY_RESULT[0].createdAt.toISOString(),
-          timestamp: FIND_MANY_RESULT[0].timestamp.toISOString(),
           updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
+          timestamp: FIND_MANY_RESULT[0].timestamp.toISOString(),
         },
       ]);
   });
@@ -172,8 +172,8 @@ describe("ChatMessage", () => {
       .expect({
         ...FIND_ONE_RESULT,
         createdAt: FIND_ONE_RESULT.createdAt.toISOString(),
-        timestamp: FIND_ONE_RESULT.timestamp.toISOString(),
         updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
+        timestamp: FIND_ONE_RESULT.timestamp.toISOString(),
       });
   });
 
@@ -186,8 +186,8 @@ describe("ChatMessage", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
-        timestamp: CREATE_RESULT.timestamp.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+        timestamp: CREATE_RESULT.timestamp.toISOString(),
       })
       .then(function () {
         agent

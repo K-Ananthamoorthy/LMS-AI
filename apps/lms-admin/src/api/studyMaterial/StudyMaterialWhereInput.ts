@@ -1,14 +1,14 @@
-import { CourseWhereUniqueInput } from "../course/CourseWhereUniqueInput";
-import { CourseListRelationFilter } from "../course/CourseListRelationFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { JsonFilter } from "../../util/JsonFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { JsonFilter } from "../../util/JsonFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { CourseListRelationFilter } from "../course/CourseListRelationFilter";
+import { CourseWhereUniqueInput } from "../course/CourseWhereUniqueInput";
 
 export type StudyMaterialWhereInput = {
-  course?: CourseWhereUniqueInput;
-  courses?: CourseListRelationFilter;
-  description?: StringNullableFilter;
-  file?: JsonFilter;
   id?: StringFilter;
+  file?: JsonFilter;
   title?: StringNullableFilter;
+  description?: StringNullableFilter;
+  courses?: CourseListRelationFilter;
+  course?: CourseWhereUniqueInput;
 };

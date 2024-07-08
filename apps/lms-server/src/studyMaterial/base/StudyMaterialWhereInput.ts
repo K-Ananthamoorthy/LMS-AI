@@ -11,27 +11,59 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CourseWhereUniqueInput } from "../../course/base/CourseWhereUniqueInput";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
-import { CourseListRelationFilter } from "../../course/base/CourseListRelationFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { JsonFilter } from "../../util/JsonFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
+import { JsonFilter } from "../../util/JsonFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { CourseListRelationFilter } from "../../course/base/CourseListRelationFilter";
+import { CourseWhereUniqueInput } from "../../course/base/CourseWhereUniqueInput";
 
 @InputType()
 class StudyMaterialWhereInput {
   @ApiProperty({
     required: false,
-    type: () => CourseWhereUniqueInput,
+    type: StringFilter,
   })
-  @ValidateNested()
-  @Type(() => CourseWhereUniqueInput)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => CourseWhereUniqueInput, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  course?: CourseWhereUniqueInput;
+  id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: JsonFilter,
+  })
+  @Type(() => JsonFilter)
+  @IsOptional()
+  @Field(() => JsonFilter, {
+    nullable: true,
+  })
+  file?: JsonFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  title?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  description?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -47,47 +79,15 @@ class StudyMaterialWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: () => CourseWhereUniqueInput,
   })
-  @Type(() => StringNullableFilter)
+  @ValidateNested()
+  @Type(() => CourseWhereUniqueInput)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => CourseWhereUniqueInput, {
     nullable: true,
   })
-  description?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: JsonFilter,
-  })
-  @Type(() => JsonFilter)
-  @IsOptional()
-  @Field(() => JsonFilter, {
-    nullable: true,
-  })
-  file?: JsonFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringFilter,
-  })
-  @Type(() => StringFilter)
-  @IsOptional()
-  @Field(() => StringFilter, {
-    nullable: true,
-  })
-  id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  title?: StringNullableFilter;
+  course?: CourseWhereUniqueInput;
 }
 
 export { StudyMaterialWhereInput as StudyMaterialWhereInput };

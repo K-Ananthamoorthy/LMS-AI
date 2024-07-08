@@ -18,30 +18,30 @@ import { PersonalAssistanceService } from "../personalAssistance.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  createdAt: new Date(),
-  details: "exampleDetails",
   id: "exampleId",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  details: "exampleDetails",
 };
 const CREATE_RESULT = {
-  createdAt: new Date(),
-  details: "exampleDetails",
   id: "exampleId",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  details: "exampleDetails",
 };
 const FIND_MANY_RESULT = [
   {
-    createdAt: new Date(),
-    details: "exampleDetails",
     id: "exampleId",
+    createdAt: new Date(),
     updatedAt: new Date(),
+    details: "exampleDetails",
   },
 ];
 const FIND_ONE_RESULT = {
-  createdAt: new Date(),
-  details: "exampleDetails",
   id: "exampleId",
+  createdAt: new Date(),
   updatedAt: new Date(),
+  details: "exampleDetails",
 };
 
 const service = {

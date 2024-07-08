@@ -11,38 +11,28 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Course } from "../../course/base/Course";
 import {
-  ValidateNested,
-  IsOptional,
-  IsDate,
   IsString,
+  IsDate,
+  IsOptional,
   MaxLength,
+  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
+import { Course } from "../../course/base/Course";
 
 @ObjectType()
 class StudyMaterial {
   @ApiProperty({
-    required: false,
-    type: () => Course,
+    required: true,
+    type: String,
   })
-  @ValidateNested()
-  @Type(() => Course)
-  @IsOptional()
-  course?: Course | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => [Course],
-  })
-  @ValidateNested()
-  @Type(() => Course)
-  @IsOptional()
-  courses?: Array<Course>;
+  @IsString()
+  @Field(() => String)
+  id!: string;
 
   @ApiProperty({
     required: true,
@@ -51,6 +41,36 @@ class StudyMaterial {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+  })
+  @IsJSONValue()
+  @IsOptional()
+  @Field(() => GraphQLJSON, {
+    nullable: true,
+  })
+  file!: JsonValue;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  title!: string | null;
 
   @ApiProperty({
     required: false,
@@ -66,41 +86,21 @@ class StudyMaterial {
 
   @ApiProperty({
     required: false,
+    type: () => [Course],
   })
-  @IsJSONValue()
+  @ValidateNested()
+  @Type(() => Course)
   @IsOptional()
-  @Field(() => GraphQLJSON, {
-    nullable: true,
-  })
-  file!: JsonValue;
-
-  @ApiProperty({
-    required: true,
-    type: String,
-  })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  courses?: Array<Course>;
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: () => Course,
   })
-  @IsString()
-  @MaxLength(1000)
+  @ValidateNested()
+  @Type(() => Course)
   @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  title!: string | null;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
+  course?: Course | null;
 }
 
 export { StudyMaterial as StudyMaterial };
